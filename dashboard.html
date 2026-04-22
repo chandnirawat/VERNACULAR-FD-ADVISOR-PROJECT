@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FD Advisor Dashboard</title>
+</head>
+<body>
+
+<h2>💰 FD Advisor Dashboard</h2>
+
+<!-- FD FORM -->
+<form action="/recommend" method="post">
+    Amount: <input name="amount" type="number" required><br><br>
+    Duration: <input name="duration" type="number" required><br><br>
+
+    Risk:
+    <select name="risk">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select><br><br>
+
+    Language:
+    <select name="language">
+        <option value="english">English</option>
+        <option value="hindi">Hindi</option>
+    </select><br><br>
+
+    <button type="submit">Recommend</button>
+</form>
+
+<br>
+
+<!-- RESULT SHOW -->
+{% if result %}
+<h3>📊 FD Result:</h3>
+<p>{{ result }}</p>
+{% endif %}
+
+<hr>
+
+<!-- CHATBOT -->
+<h3>🤖 Chatbot</h3>
+
+<form action="/chat" method="post">
+    <input name="message" placeholder="Ask about FD..." required>
+    <button type="submit">Send</button>
+</form>
+
+<br>
+
+<!-- CHAT RESPONSE -->
+{% if chat_reply %}
+<h3>💬 Bot Reply:</h3>
+<p>{{ chat_reply }}</p>
+{% endif %}
+
+</body>
+</html>
